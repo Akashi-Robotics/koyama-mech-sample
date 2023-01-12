@@ -1,0 +1,21 @@
+name: mbed-build
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+      
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    container: ghcr.io/armmbed/mbed-os-env
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          repository: ARMmbed/mbed-os-example-blinky
+      - uses: OUXT-Polaris/build-mbed-app-action@master
+        with:
+          target_board: NUCLEO-F446RE
+          toolchain: GCC_ARM
