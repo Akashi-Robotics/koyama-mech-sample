@@ -10,6 +10,8 @@
 // Blinking rate in milliseconds
 #define BLINKING_RATE_MS                                                    500
 
+template<typename T>
+void f(T x){}
 
 int main()
 {
@@ -17,6 +19,7 @@ int main()
     DigitalOut led(LED1);
 
     while (true) {
+        f(1);
         led = !led;
         thread_sleep_for(BLINKING_RATE_MS);
     }
