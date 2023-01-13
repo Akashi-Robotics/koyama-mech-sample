@@ -17,9 +17,8 @@ jobs:
     strategy:
       matrix:
         target: [NUCLEO_F446RE]
-        profile: [release, debug, develop]
+        profile: [debug]
         
-
     steps:
       -
         name: Checkout
@@ -32,26 +31,3 @@ jobs:
           mbed deploy
           mbed compile -t GCC_ARM -m ${{ matrix.target }} --profile ${{ matrix.profile }}
           
-  build-cli-v2:
-    container:
-      image: ghcr.io/armmbed/mbed-os-env:mbed-os-5.15-latest
-
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        target: [NUCLEO_F446RE]
-        profile: [release, debug, develop]
-        
-
-    steps:
-      -
-        name: Checkout
-        uses: actions/checkout@v2
-          
-      -
-        name: build-example-application
-        run: |
-          set -e
-          mbed-tools deploy
-          mbed-tools compile -t GCC_ARM -m ${{ matrix.target }} --profile ${{ matrix.profile }}
