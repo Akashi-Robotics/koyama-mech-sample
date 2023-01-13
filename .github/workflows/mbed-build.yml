@@ -12,4 +12,4 @@ jobs:
     runs-on: ubuntu-latest
     container: ghcr.io/armmbed/mbed-os-env:mbed-os-5.15-latest
     steps:
-      - run: mbed-tools -h
+      - run: mbed
