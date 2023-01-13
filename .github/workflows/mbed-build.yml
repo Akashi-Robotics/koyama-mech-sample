@@ -10,13 +10,13 @@ on:
 jobs: 
   build-cli-v1:
     container:
-      image: ghcr.io/armmbed/mbed-os-env:master-latest
+      image: ghcr.io/armmbed/mbed-os-env:mbed-os-5.15-latest
 
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        target: [K64F, DISCO_L475VG_IOT01A, NRF52840_DK]
+        target: [NUCLEO_F446RE]
         profile: [release, debug, develop]
         
 
@@ -34,13 +34,13 @@ jobs:
           
   build-cli-v2:
     container:
-      image: ghcr.io/armmbed/mbed-os-env:master-latest
+      image: ghcr.io/armmbed/mbed-os-env:mbed-os-5.15-latest
 
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        target: [K64F, DISCO_L475VG_IOT01A, NRF52840_DK]
+        target: [NUCLEO_F446RE]
         profile: [release, debug, develop]
         
 
