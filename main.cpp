@@ -14,11 +14,6 @@ int main()
 {
     // Initialise the digital pin LED1 as an output
     DigitalOut led(LED1);
-    #if __cplusplus == 201103L
-        static_assert(false, "C++14 under");
-    #elif __cplusplus > 201103L
-        static_assert(false, "C++17 more");
-    #endif
     while (true) {
         if(int i = 0;i < 4){
         led = !led;
