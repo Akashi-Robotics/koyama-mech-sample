@@ -17,7 +17,7 @@ jobs:
     strategy:
       matrix:
         target: [NUCLEO_F446RE]
-        profile: [release]
+        profile: [develop]
         
     steps:
       -
@@ -29,5 +29,5 @@ jobs:
         run: |
           set -e
           mbed deploy
-          mbed compile -t GCC_ARM -m ${{ matrix.target }} --profile ${{ matrix.profile }}
+          mbed compile -t GCC_ARM -m ${{ matrix.target }} --profile mbed-profiles/${{ matrix.profile }}.json
           
