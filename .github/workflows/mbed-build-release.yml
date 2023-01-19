@@ -1,4 +1,4 @@
-name: mbed-release
+name: mbed-build-release
 
 on:
   push:
