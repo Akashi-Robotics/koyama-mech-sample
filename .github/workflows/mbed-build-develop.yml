@@ -15,7 +15,7 @@ jobs:
     strategy:
       matrix:
         target: [NUCLEO_F446RE]
-        profile: [develop]
+        profile: [debug,develop]
         
     steps:
       -
@@ -33,4 +33,6 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: ${{ matrix.target }}
-          path: BUILD/${{ matrix.target }}/GCC_ARM-DEVELOP/${{ github.event.repository.name }}.bin
+          path: |
+            BUILD/${{ matrix.target }}/GCC_ARM-DEBUG/${{ github.event.repository.name }}.bin
+            BUILD/${{ matrix.target }}/GCC_ARM-DEVELOP/${{ github.event.repository.name }}.bin
