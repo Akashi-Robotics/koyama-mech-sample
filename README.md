@@ -17,9 +17,8 @@ Mbed CLI
 2. 設定とコンパイル(e.g. board : NUCLEO_F446RE , profile: Develop)
 
   ```terminal
-  set -e
   mbed deploy
-  mbed compile -t GCC_ARM -m NUCLEO_F446RE mbed-profiles/develop.json
+  mbed compile -t GCC_ARM -m NUCLEO_F446RE --profile mbed-profiles/develop.json
   ```
 
 ## Status
