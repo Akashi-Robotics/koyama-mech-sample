@@ -8,12 +8,11 @@ on:
 
 
 jobs: 
-  build-cli-v1:
+  build:
     container:
       image: ghcr.io/armmbed/mbed-os-env:mbed-os-5.15-latest
-
     runs-on: ubuntu-latest
-
+    
     strategy:
       matrix:
         target: [NUCLEO_F446RE]
@@ -25,9 +24,15 @@ jobs:
         uses: actions/checkout@v2
           
       -
-        name: build-example
+        name: build
         run: |
           set -e
           mbed deploy
           mbed compile -t GCC_ARM -m ${{ matrix.target }} --profile mbed-profiles/${{ matrix.profile }}.json
+      -
+        name: release
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ matrix.target }}
+          path: build/
           
