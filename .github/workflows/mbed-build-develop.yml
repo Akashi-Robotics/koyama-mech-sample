@@ -1,12 +1,11 @@
-name: mbed-build
+name: mbed-build-develop
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "develop" ]
   pull_request:
-    branches: [ "main" ]
-
-
+    branches: [ "develop" ]
+    
 jobs: 
   build:
     container:
@@ -35,12 +34,3 @@ jobs:
         with:
           name: ${{ matrix.target }}
           path: BUILD/${{ matrix.target }}/GCC_ARM-DEVELOP/Project-Template-for-mbed.bin
-          
-      - name: release
-        uses: softprops/action-gh-release@v1
-        with:
-          body_path: CHANGELOG.md
-          files: |
-            Project-Template-for-mbed.bin
-            LICENSE
-            NOTICE.md
