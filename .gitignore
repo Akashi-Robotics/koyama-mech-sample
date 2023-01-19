@@ -35,3 +35,4 @@
 .mbed
 projectfiles
 *.py*
+.vscode/

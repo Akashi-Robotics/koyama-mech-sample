@@ -2,9 +2,12 @@ name: mbed-build-develop
 
 on:
   push:
-    branches: [ "develop" ]
+    branches: 
+      - develop
+      - develop/**
   pull_request:
-    branches: [ "develop" ]
+    branches: 
+      - develop
     
 jobs: 
   build:
@@ -15,7 +18,7 @@ jobs:
     strategy:
       matrix:
         target: [NUCLEO_F446RE]
-        profile: [debug,develop]
+        profile: [develop]
         
     steps:
       -
@@ -34,5 +37,4 @@ jobs:
         with:
           name: ${{ matrix.target }}
           path: |
-            BUILD/${{ matrix.target }}/GCC_ARM-DEBUG/${{ github.event.repository.name }}.bin
             BUILD/${{ matrix.target }}/GCC_ARM-DEVELOP/${{ github.event.repository.name }}.bin
