@@ -30,9 +30,17 @@ jobs:
           mbed deploy
           mbed compile -t GCC_ARM -m ${{ matrix.target }} --profile mbed-profiles/${{ matrix.profile }}.json
       -
-        name: release
+        name: upload
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ matrix.target }}.bin
+          name: ${{ matrix.target }}
           path: BUILD/${{ matrix.target }}/GCC_ARM-DEVELOP/Project-Template-for-mbed.bin
           
+      - name: release
+        uses: softprops/action-gh-release@v1
+        with:
+          body_path: CHANGELOG.md
+          files: |
+            Project-Template-for-mbed.bin
+            LICENSE
+            NOTICE.md
