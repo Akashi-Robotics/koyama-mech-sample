@@ -45,7 +45,7 @@ Mbed CLI
 
 ## Release Flow
 
-- タグを付けてpushするだけ
+- タグを付けてpushする
   - `git tag v1.0.0`
   - `git push origin v1.0.0`
   - 一般的にはプリフィックスにvを付ける
