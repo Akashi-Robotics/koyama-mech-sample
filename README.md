@@ -22,7 +22,6 @@ Mbed CLI
   ```
 
   
-
 ## Status
 
 
