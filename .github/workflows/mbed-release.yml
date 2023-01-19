@@ -32,7 +32,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: ${{ matrix.target }}
-          path: BUILD/${{ matrix.target }}/GCC_ARM-DEVELOP/${{ github.event.repository.name }}.bin
+          path: BUILD/${{ matrix.target }}/GCC_ARM-${{ matrix.profile }}/${{ github.event.repository.name }}.bin
       - name: release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
