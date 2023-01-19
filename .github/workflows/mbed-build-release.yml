@@ -1,8 +1,8 @@
 name: mbed-build-release
 
 on:
-  tags: '*'
   push:
+    tags: '*'
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
