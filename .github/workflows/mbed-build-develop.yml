@@ -33,4 +33,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: ${{ matrix.target }}
-          path: BUILD/${{ matrix.target }}/GCC_ARM-DEVELOP/Project-Template-for-mbed.bin
+          path: BUILD/${{ matrix.target }}/GCC_ARM-DEVELOP/${GITHUB_REPOSITORY#${GITHUB_REPOSITORY_OWNER}/}.bin
