@@ -2,7 +2,7 @@ name: mbed-release
 
 on:
   push:
-    tags: '*'
+    tags: 'v*'
     branches: [ "main" ]
     
 jobs: 
@@ -14,7 +14,7 @@ jobs:
     strategy:
       matrix:
         target: [NUCLEO_F446RE]
-        profile: [develop]
+        profile: [release]
         
     steps:
       -
