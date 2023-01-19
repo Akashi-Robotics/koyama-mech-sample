@@ -15,7 +15,7 @@ jobs:
     strategy:
       matrix:
         target: [NUCLEO_F446RE]
-        profile: [debug,develop]
+        profile: [develop]
         
     steps:
       -
