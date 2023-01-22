@@ -9,10 +9,11 @@ constexpr double roll_input = 0.2;
 
 /*
 slit_sensor.read() => スリットセンサが遮られているとき1を、遮られていない時0を返す関数
-encoder.get() => ロータリーエンコーダーの回転数を返す関数
+encoder.get() => ロータリーエンコーダーの回転数みたいな値を返す関数
 link = link_input => リンク機構を回す (= 0で止める)
 load = load_input => 紙飛行機を押し出すローラーを回す (= 0で止める)
 roll = roll_input => ローラーを回す (= 0で止める)
+encoder.get()/resolution => 回転数を求める式
 */
  
 int main() {
@@ -33,13 +34,17 @@ int main() {
   wait(2);
   while (true) {
     roll = roll_input; //ローラーを回す
-    while(slit == 0 or slit_sensor.read() == 1){
+    while(slit == 0) {
+      link = link_input;
+      slit = slit_sensor.read();
+    }
+    while(slit == 1) {
       link = link_input;
       slit = slit_sensor.read();
     }
     link = 0; //リンク機構を止める
     rotate = encoder.get()/resolution; //エンコーダーから現在の回転数を求める
-    while(encoder.get()/resolution - rotate < 3){
+    while(encoder.get()/resolution - rotate < 3){ //今の回転数と前の回転数の差が3より小さいかどうか
       load = load_input; //紙飛行機を押し出すローラーを回す
     }
     load = 0; //紙飛行機を押し出すローラーを止める
