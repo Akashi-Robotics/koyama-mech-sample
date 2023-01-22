@@ -7,7 +7,7 @@
 #include "platform/mbed_thread.h"
 
 // Blinking rate in milliseconds
-#define BLINKING_RATE_MS                                                    500
+#define BLINKING_RATE_MS   500
 
 
 int main()
