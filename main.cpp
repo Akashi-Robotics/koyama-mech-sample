@@ -32,8 +32,8 @@ int main() {
   int rotate = 0;
 
   wait(2);
+  roll = roll_input; //ローラーを回す
   while (true) {
-    roll = roll_input; //ローラーを回す
     while(slit == 0) {
       link = link_input;
       slit = slit_sensor.read();
