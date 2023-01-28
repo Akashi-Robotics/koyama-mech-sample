@@ -1,5 +1,5 @@
 #include "mbed.h"
-#include "arrc_mbed/rotary_inc.hpp"
+#include "arrc_mbed/arrc_mbed/rotary_inc.hpp"
 
 constexpr int resolution = 256;
 constexpr double dt = 0.01;
