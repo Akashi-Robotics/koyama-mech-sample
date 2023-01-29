@@ -1,4 +1,4 @@
-#include "mbed.h"
+```c++#include "mbed.h"
 #include "arrc_mbed/rotary_inc.hpp"
 
 constexpr int resolution = 256;
@@ -50,3 +50,4 @@ int main() {
     load = 0; //紙飛行機を押し出すローラーを止める
   }
 }
+```

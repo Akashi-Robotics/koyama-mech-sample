@@ -1,5 +1,7 @@
-#include "mbed.h"
+```c++#include "mbed.h"
 #include "arrc_mbed/rotary_inc.hpp"
+
+// main() runs in its own thread in the OS
 
 constexpr int resolution = 256;
 constexpr double dt = 0.01;
@@ -19,20 +21,26 @@ int main() {
   link = 0;
   load = 0;
   roll = 0;
+  int slit = slit_sensor.read();
+  int rotate = 0;
+  wait(2);
   //1
-  //2
-  wait(2); // ループ開始前の少しだけ待つ
   while (true) {
-    //3_while
-    while(/*3-1*/) {
-      //3-2
-      //3-3
+    while(slit == 0) {
+      slit = slit_sensor.read();
+      link = link_input;
     }
+    while(slit == 1) {
+      slit = slit_sensor.read();
+      link = link_input;
+    }
+    //2
+    //3
     //4_while
-    while(/*4-1*/) {
+    while(/*4-1*/ < 3){
       //4-2
-      //4-3
     }
     //5
   }
 }
+```

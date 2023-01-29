@@ -1,3 +1,4 @@
+```c++
 #include "mbed.h"
 #include "arrc_mbed/rotary_inc.hpp"
 
@@ -27,3 +28,4 @@ int main() {
         //loop処理
     }
 }
+```
