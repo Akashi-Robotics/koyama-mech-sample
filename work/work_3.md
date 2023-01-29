@@ -1,4 +1,5 @@
-```c++#include "mbed.h"
+```c++
+#include "mbed.h"
 #include "arrc_mbed/rotary_inc.hpp"
 
 // main() runs in its own thread in the OS
